@@ -7,6 +7,13 @@ export interface Order {
     OrderStatus: string;
 }
 
+export interface Product {
+    ProductID: number;
+    ProductName: string;
+    ProductPhotoURL: string;
+    ProductStatus: string;
+}
+
 export interface OrderData {
   Queued: Order[],
   InProgress: Order[],
@@ -24,6 +31,10 @@ export interface DraggableListProps {
     removeOrder: (order: Order) => void;
     items: Order[];
 };
+
+export interface ProductCardProps {
+    product: Product;
+}
 
 export interface HeaderLink {
     label: string;

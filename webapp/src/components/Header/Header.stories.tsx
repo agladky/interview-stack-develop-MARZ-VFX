@@ -18,3 +18,15 @@ export const TwoLinks = Template.bind({});
 TwoLinks.args = {
     links: [{ label: 'test', url: '/test/' }, { label: 'test1', url: '/test1/' }]
 };
+
+export const TwoLinksActiveProducts = Template.bind({});
+TwoLinksActiveProducts.decorators = [
+    (Story) => (
+        <MemoryRouter initialEntries={['/products']}>
+            <Story />
+        </MemoryRouter>
+    ),
+];
+TwoLinksActiveProducts.args = {
+    links: [{ label: 'Home', url: '/' }, { label: 'Products', url: '/products' }],
+};

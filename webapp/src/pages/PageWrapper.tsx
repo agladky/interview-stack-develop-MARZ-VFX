@@ -12,7 +12,7 @@ const links = [
 
 const PageWrapper = (props: PageWrapperProps) => (
     <>
-        <div className="sticky top-0">
+        <div className="sticky top-0 z-50">
             <Header links={links} />
         </div>
         <div className="flex flex-col items-center justify-center p-4">

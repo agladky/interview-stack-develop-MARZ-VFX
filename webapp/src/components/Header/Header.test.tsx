@@ -1,24 +1,52 @@
 import React from "react";
-import { create, ReactTestRenderer} from 'react-test-renderer';
+import { create, ReactTestRenderer } from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
 
+const links = [
+  { label: 'Home', url: '/' },
+  { label: 'Products', url: '/products' }
+];
+
 describe('Header', () => {
   let tree: ReactTestRenderer;
-  beforeEach(() => {
+
+  const renderHeader = (initialEntries = ['/']) => {
     tree = create(
-        <MemoryRouter>
-            <Header links={[{ label: 'test', url: '/test/' }]}/>
-        </MemoryRouter>
+      <MemoryRouter initialEntries={initialEntries}>
+        <Header links={links} />
+      </MemoryRouter>
     );
-  });
+  };
+
   afterEach(() => {
-    tree.unmount();
+    if (tree) {
+      tree.unmount();
+    }
   });
-  it('rendersMainIcon', async () => {
+
+  it('renders the main icon and links', async () => {
+    renderHeader();
     const testInstance = tree.root;
-    await testInstance.findByProps({ 'data-testid': 'header-container-div'});
-    await testInstance.findByProps({ 'data-testid': 'main-icon'});
-    await testInstance.findByProps({ 'data-testid': 'link-0'});
+    
+    expect(testInstance.findByProps({ 'data-testid': 'header-container-div' })).toBeTruthy();
+    expect(testInstance.findByProps({ 'data-testid': 'main-icon' })).toBeTruthy();
+    links.forEach((_, index) => {
+      expect(testInstance.findByProps({ 'data-testid': `link-${index}` })).toBeTruthy();
+    });
+  });
+
+  it('highlights the active link', async () => {
+    renderHeader(['/products']);
+    const testInstance = tree.root;
+
+    links.forEach((link, index) => {
+      const linkElement = testInstance.findByProps({ 'data-testid': `link-${index}` });
+      if (link.url === '/products') {
+        expect(linkElement.props.className).toContain('bg-black text-red-500');
+      } else {
+        expect(linkElement.props.className).toContain('text-white');
+      }
+    });
   });
 });

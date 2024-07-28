@@ -1,5 +1,93 @@
+# Node modules
 node_modules
-build
-.dockerignore
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs
+*.log
+*.log.*
+
+# Dependency directories
+**/node_modules
+**/bower_components
+**/jspm_packages
+
+# Testing and coverage
+coverage
+**/*.test.js
+**/*.spec.js
+**/*.test.ts
+**/*.spec.ts
+**/*.test.jsx
+**/*.spec.jsx
+**/*.test.tsx
+**/*.spec.tsx
+jest.config.js
+jest.setup.js
+__tests__
+__mocks__
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# IDEs and editors
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Docker files
 Dockerfile
-Dockerfile.prod
+docker-compose.yml
+docker-compose.override.yml
+.dockerignore
+
+# Git files
+.git
+.gitignore
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Miscellaneous
+tmp
+temp
+
+# React specific files
+build
+public/**/*.map
+public/static
+src/**/*.test.js
+src/**/*.test.jsx
+src/**/*.test.ts
+src/**/*.test.tsx
+src/setupTests.js
+src/setupTests.ts
+src/reportWebVitals.js
+src/reportWebVitals.ts
+src/serviceWorker.js
+src/serviceWorker.ts
+src/**/*.stories.js
+src/**/*.stories.jsx
+src/**/*.stories.ts
+src/**/*.stories.tsx
+.storybook
+
+# Storybook files
+**/*.story.js
+**/*.story.jsx
+**/*.story.ts
+**/*.story.tsx
+storybook-static

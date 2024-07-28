@@ -1,0 +1,5 @@
+Flask==3.0.3
+peewee==3.17.6
+pytest==8.3.2
+mariadb==1.1.10
+marshmallow==3.21.3

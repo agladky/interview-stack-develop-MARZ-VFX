@@ -31,9 +31,9 @@ const HomePage = () => {
 
   const getOrders = async () => {
     setLoadingState(DATA_STATES.waiting);
-    const { orderData, errorOccured } = await getInPipelineData();
+    const { orderData, errorOccurred } = await getInPipelineData();
     setData(orderData);
-    setLoadingState(errorOccured ? DATA_STATES.error : DATA_STATES.loaded);
+    setLoadingState(errorOccurred ? DATA_STATES.error : DATA_STATES.loaded);
   };
 
   const updateOrder = async (order: Order) => {
@@ -110,7 +110,7 @@ const HomePage = () => {
           />
           <DraggableList
             ID='1'
-            listTitle='In Progess'
+            listTitle='In Progress'
             removeOrder={(order: Order) => updateOrder(order)}
             items={data.InProgress}
           />
@@ -129,7 +129,7 @@ const HomePage = () => {
         className="flex flex-row justify-center w-full pt-4 text-3xl font-bold text-white"
         data-testid="error-container"
       >
-        An error occured fetching the data!
+        An error occurred fetching the data!
       </div>
     );
 
